@@ -170,3 +170,9 @@ set handlers for signals the process may or will receive that indicate that
 it is time to shut down. In these handlers, we can clean things up -- e.g.,
 close database connections -- and call `process.exit`.
 
+##Run your application
+`cd` into the root directory of your application (the same one you ran the
+generator in) and run this command:
+
+`$ npm start`
+
