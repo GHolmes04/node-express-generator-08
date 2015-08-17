@@ -170,6 +170,20 @@ set handlers for signals the process may or will receive that indicate that
 it is time to shut down. In these handlers, we can clean things up -- e.g.,
 close database connections -- and call `process.exit`.
 
+###models/*
+This is where your database models go. We'll gloss over this for now because
+we will have ample opportunity to discuss it as it comes up in following
+lessons.
+
+###lib/*
+This is where we place our configuration and miscellaneous files. By having
+out configuration constants as modules, we make it easy for ourselves (and
+others) to modify them for special cases or deployment.
+
+###log/*
+This is where you have your logging middleware write logs. Make sure to
+add this directory to your .gitignore!
+
 ##Run your application
 `cd` into the root directory of your application (the same one you ran the
 generator in) and run this command:
