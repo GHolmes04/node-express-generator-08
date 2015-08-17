@@ -20,7 +20,7 @@ $ npm install -g express-generator
 
 ###Linux
 ```bash
-\# npm install -g express-generator
+ # npm install -g express-generator
 ```
 
 ###Verify install
