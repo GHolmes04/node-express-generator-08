@@ -85,6 +85,73 @@ following command:
 $ less package.json
 ```
 
+You should see something like this:
+
+```json
+{
+  "name": "node-express-generator",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "hbs": "~3.1.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
+  }
+}
+```
+
+###app.js
+This file sets up and configues your `app`, the result of the `express` factory
+function (not to be confused with the command-line program). This is the core
+of our application. It wraps around an instance `http.Server` and provides
+a rich interface for us to build our back-end.
+
+Since the goal of `express`, the web back-end framework, is to provide routing
+and act as the glue that holds your back-end together, this file will be
+the center of your application.
+
+###routes/index.js
+In this file, we create and outfit a `Router`, then export it as a module.
+We consume the module in our `app.js`, mounting them on our `app`.
+
+Creating `Routers` like this lets us organize our routes better. We can
+put all routes with the same prefix on the same router, then mount it on
+our `app` our another router.
+
+###routes/*.js
+As above, these files serve to group our routes together. If you have a
+`routes/users.js` file, then you are expected to mount it on your app
+at path `'/users'`. `routes/index.js` is expected to be mounted on `/`.
+
+###public/*
+This directory contains all your static assets. Things like CSS stylesheets,
+page scripts, and HTML pages belong here, each in their own subdirectory.
+
+We won't be using this very much unless we use the `serve-static` middleware.
+In production, we'll rarely serve files from our express application, instead
+using a "true" web server to serve static content, since that is what they
+are frequently optimized for.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
