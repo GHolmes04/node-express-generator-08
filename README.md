@@ -139,23 +139,34 @@ In production, we'll rarely serve files from our express application, instead
 using a "true" web server to serve static content, since that is what they
 are frequently optimized for.
 
+###views/*
+This is where your view templates go. This is only relevant for server-side
+templating, where we serve dynamically generated pages using templates and
+data available to our application, such as database rows or documents, from
+the server rather than serving JSON data and offloading the template rendering
+to the client-side.
 
+Server-side templating is a valid approach, but is most useful in a limited
+subset of cases. One example is when rendering your templates requires data
+that you want to keep hidden from the client.
 
+What sort of templates we have here will depend on the templating engine
+we chose when running the generator. The generator will give us some starter
+templates to start off with and embellish as we go.
 
+###bin/www
+This is our start script. In fact, the express generator sets up `npm start` to
+run `node ./bin/www`. This script requires `app.js`, which exports `app` as
+a module, and uses `app` for what it was meant to do: be the callback for an
+instance of `http.Server`!
 
+This is the file where we do startup-related things. If we want to sync our
+database models before listening for connections, this is where we write that
+code.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+This is also where we can take care of out application's termination handlers.
+`process` is accessible anywhere, but this is the most appropriate place to
+set handlers for signals the process may or will receive that indicate that
+it is time to shut down. In these handlers, we can clean things up -- e.g.,
+close database connections -- and call `process.exit`.
 
