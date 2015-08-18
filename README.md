@@ -164,10 +164,10 @@ This is the file where we do startup-related things. If we want to sync our
 database models before listening for connections, this is where we write that
 code.
 
-This is also where we can take care of out application's termination handlers.
-`process` is accessible anywhere, but this is the most appropriate place to
-set handlers for signals the process may or will receive that indicate that
-it is time to shut down. In these handlers, we can clean things up -- e.g.,
+This is also one place where we can take care of out application's termination
+handlers. `process` is accessible anywhere, but this is the most appropriate
+place to set handlers for signals the process may or will receive that indicate
+that it is time to shut down. In these handlers, we can clean things up -- e.g.,
 close database connections -- and call `process.exit`.
 
 ###models/*
